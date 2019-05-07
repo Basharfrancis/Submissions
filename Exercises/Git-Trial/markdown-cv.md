@@ -25,13 +25,6 @@
 * language : 
   - arabic (native)
   - english (intermediate)
-=======
-<asdnna>   
-asdasdn asdasdn
- jsdfsdn
- sdnsdfs
-  sdvs
-   sdfvsdv
-    sdfs
-    
->>>>>>> e1a43dada5805719509f19994a603a65517ec070
+* hobbies :
+ - playing ping pong 
+ - swimming
