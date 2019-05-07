@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## **Bashar Francis**
 ### Email : basharfrancis16@gmail.com
 ### Phone : +96171819663
@@ -24,3 +25,13 @@
 * language : 
   - arabic (native)
   - english (intermediate)
+=======
+<asdnna>   
+asdasdn asdasdn
+ jsdfsdn
+ sdnsdfs
+  sdvs
+   sdfvsdv
+    sdfs
+    
+>>>>>>> e1a43dada5805719509f19994a603a65517ec070
