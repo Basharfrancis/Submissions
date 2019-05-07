@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ## **Bashar Francis**
 ### Email : basharfrancis16@gmail.com
 ### Phone : +96171819663
@@ -26,5 +26,5 @@
   - arabic (native)
   - english (intermediate)
 * hobbies :
- - playing ping pong 
- - swimming
+  - playing ping pong 
+  - swimming
