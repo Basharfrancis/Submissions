@@ -1,4 +1,5 @@
-![alt text] (website.jpg)
+
+![alt text](website.jpg)
 ## **Bashar Francis**
 ### Email : basharfrancis16@gmail.com
 ### Phone : +96171819663
@@ -25,11 +26,9 @@
 * language : 
   - arabic (native)
   - english (intermediate)
-<asdnna>   
-asdasdn asdasdn
- jsdfsdn
- sdnsdfs
-  sdvs
-   sdfvsdv
-    sdfs
+  
+* hobbies :
+  - playing ping pong 
+  - swimming
     
+
