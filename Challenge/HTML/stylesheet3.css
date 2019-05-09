@@ -1,0 +1,59 @@
+body{
+    width: 1200px;
+    margin: auto;
+    background-color: teal;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 40px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: #111;
+  }
+  .mainMenu{
+    list-style-type:square;
+  }
+  .home{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+  }
+  .order{
+    float: left;
+  }
+.firstdev{
+    width: 30%;
+    float: left;
+    
+}
+.seconddev{
+    float: right;
+    width: 70%;
+}
+.thirddev{
+    float: left;
+    width: 50%;
+
+}
+.forthdev{
+    float: right;
+    width: 50%;
+}
+.sixdev{
+    clear: both;
+    display: block;
+}
+header{
+  background-image: url("background.png");
+  height: 200px;
+  padding-left: 40px;
+  padding-top: 50px; 
+}
+.imgback{
+    font-size: 40px;
+}
