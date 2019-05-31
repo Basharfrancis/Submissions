@@ -1,0 +1,14 @@
+Img{
+width: 100px;
+height: 50px;
+}
+Form{
+    width: 580px;
+    display: inline-block;
+    top: 5px;
+}
+button{
+    width:70px; 
+    height: 38px;
+    display: inline-block;
+}
