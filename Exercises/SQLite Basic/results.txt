@@ -61,6 +61,32 @@ result : 1	Alex	21	M	100
 5	Robert	34	M	500
 6	Jana	33	F	500
 7	Bashar	23	M	900
+question 11
+answer :SELECT  employees.Name ,companies.Name , companies.Date
+FROM companies 
+INNER JOIN employees ON companies.Id = employees.Id;
+result :
+Alaa	Instagram	2010
+Hala	Snapchat	2011
+Marc	Google	    1998
+Maria	Facebook	2004
+question : 12 
+answer : 
+SELECT employees.Name , companies.Date
+FROM companies
+INNER JOIN employees ON companies.ID = employees.ID 
+WHERE companies.Date<2000;
+ 
+ Marc 1998
+ 
+ question :13
+ answer :
+ SELECT companies.Name , employees.Role
+FROM companies
+INNER JOIN employees ON companies.ID = employees.ID
+WHERE employees.Role = "Graphic Designer";
+result :
+Snapchat	Graphic Designer
 
 
 
