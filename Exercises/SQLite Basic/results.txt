@@ -89,5 +89,31 @@ result :
 Snapchat	Graphic Designer
 
 
+14 :
+answer : SELECT max (points) , Name FROM Students;
+result : 900	Bashar
 
+ 15 
+ answer : SELECT avg (Points)  FROM students;
+ result : 441.666666666667
+ 
+  16 SELECT count (Points) FROM students WHERE Points > 500;
+  result : 1 
+   
+   17 : 
+   answer : SELECT name FROM students 
+WHERE name like '%s%';
+result : Bashar
+Basma
+Hasan
+
+18 : SELECT name,Points FROM students
+ORDER by Points DESC; 
+result :
+Bashar	900
+Basma	500
+Robert	500
+Jana	500
+Hasan	150
+Alex	100
  
