@@ -1,0 +1,38 @@
+number of question : 1
+query answer : SELECT Name FROM students;
+The result of the query : "1" "Alex"
+ "2" "Basma"
+ "3" "Hasan"
+ "4" "Layal"
+ "5" "Robert"
+ "6" "Jana"
+ question 2 : 
+ query answer : SELECT * FROM students
+WHERE Age > 30;
+result of query : 
+"1" "Robert" "34" "M" "500"
+"2" "Jana" "33" "F" "500"
+question 3 
+query answer : SELECT Name FROM students
+WHERE Gender = 'F' AND Age = 30;
+Result: 0 rows returned in 15ms
+question 4 
+query answer : SELECT Points FROM students
+WHERE name = 'Alex';
+result : 200
+question : 5 
+query answer : "7" "bashar" "23" "M" "900"
+question : 6 
+query answer : UPDATE students 
+SET Points = 500
+WHERE ID = 2;
+result:
+"2" "Basma" "Points" "500"
+question : 7
+query answer :UPDATE students 
+SET Points = 100
+WHERE Id = 1;
+result : "1" "Alex" "Points" "100"
+
+
+ 
