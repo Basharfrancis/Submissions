@@ -33,6 +33,35 @@ query answer :UPDATE students
 SET Points = 100
 WHERE Id = 1;
 result : "1" "Alex" "Points" "100"
+creat table : 
+CREATE TABLE graduates(
+Id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+name varchar(255) NOT NULL UNIQUE,
+Age INT,
+Gender varchar(255) ,
+Points INT,
+Graduation datetime
+);
+answer query : Result: table graduates already exists
+question :Copy Layal's data from students to graduates
+answer :INSERT INTO graduates (Id,name,Age,Gender,Points)
+SELECT Id,name,Age,Gender,Points FROM students
+WHERE Id = 4;
+result : 4	Layal	18	F	350	
+question :Add the graduation date previously mentioned to Layal's record in graduates
+answer query : UPDATE graduates 
+SET Graduation = "graduated on 08/09/2018"
+WHERE Id = 4;
+result : 4	Layal	18	F	350	graduated on 08/09/2018
+question : Remove Layal's record from students
+answer : DELETE FROM students WHERE Id=4;
+result : 1	Alex	21	M	100
+2	Basma	25	F	500
+3	Hasan	30	M	150
+5	Robert	34	M	500
+6	Jana	33	F	500
+7	Bashar	23	M	900
+
 
 
  
