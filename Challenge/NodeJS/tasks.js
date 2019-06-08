@@ -69,6 +69,9 @@ function unknownCommand(c){
 function hello(){
   console.log('hello!')
 }
+/** type help if you want to know all possible commands in this application
+ * @returns {void}
+*/
 function help(){
   console.log('help..\nyou can change your name\nalso you can type hello!\nalso you can exit or quit from application\nunknown command if all other command failed \nfor more information call 0011')
 }
