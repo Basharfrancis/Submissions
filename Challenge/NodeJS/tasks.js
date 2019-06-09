@@ -68,7 +68,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(t){
-  console.log(t.join(" "))
+  console.log(t.join(" ").replace("\n","!"))
 
 }
 /** type help if you want to know all possible commands in this application
