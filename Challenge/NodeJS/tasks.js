@@ -87,7 +87,7 @@ function help(){
 //console.log(list)
 function list(basharArray){
   for(var i =0; i<basharArray.length; i++){
-  console.log('"'+[i+1]+'"' +" "+ basharArray[i])
+  console.log([i+1] +" "+ basharArray[i])
   }
  
 }
