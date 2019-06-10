@@ -36,6 +36,7 @@ function startApp(name){
 function onDataReceived(text) {
   var arraySTR = text.trim('').split(" ")
   var ararArra = text.trim('').split(" ")
+  var grrfc = text.trim('').split(" ")
 
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
@@ -52,15 +53,15 @@ function onDataReceived(text) {
   else if (ararArra[0] === 'add' ||text === 'add\n'){
     add(ararArra,listArry);
   }
-  else if (text === 'remove\n'){
-    remove();
+  else if (grrfc[0] === 'remove' || text === 'remove\n'){
+    remove(grrfc,text);
   }
-  else if(text === 'remove 1\n'){
-    removeFirst();
-  }
-  else if (text === 'remove 2\n'){
-    removeSecond();
-  }
+  // else if(text === 'remove 1\n'){
+  //   removeFirst();
+  // }
+  // else if (text === 'remove 2\n'){
+  //   removeSecond();
+  // }
   else{
     unknownCommand(text);
   }
@@ -87,14 +88,14 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(t){
-  console.log(t.join("!"))
+  console.log(t.join(" ")+'!')
 
 }
 /** type help if you want to know all possible commands in this application
  * @returns {void}
 */
 function help(){
-  console.log('help..\nyou can change your name\nalso you can type hello!\nin order to hello you can type any text you want start with "hello"\nalso you can exit or quit from application\nunknown command if all other command failed \nfor more information call 0011')
+  console.log('help..\nyou can change your name\nalso you can type hello!\nin order to hello you can type any text you want start with "hello"\nalso you can exit or quit from application\nunknown command if all other command failed also we add 3 remove command to remove first and second and the last elemnt from list\n  \nfor more information call 0011')
 }
 //console.log(list)
 function list(basharArray){
@@ -113,17 +114,25 @@ function add(hadiraArray,listArry){
   console.log("error")
   }
 }
-function remove(){
+function remove(grrfc,text){
+  if (text === 'remove\n'){
+    listArry.pop()
+  }
+  else if(grrfc[1] > listArry.length ){
+    console.log("number does not exist")
+  }
+  else{
+    listArry.splice(grrfc[1]-1, 1)
+  }
+
   
-    listArry.pop();
-  
 }
-function removeFirst(){
-  listArry.shift();
-}
-function removeSecond (){
-  listArry.splice(1,1);
-}
+// function removeFirst(){
+//   listArry.shift();
+// }
+// function removeSecond (){
+//   listArry.splice(1,1);
+// }
 
 
 /**
