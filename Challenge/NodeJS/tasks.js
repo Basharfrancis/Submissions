@@ -35,6 +35,8 @@ function startApp(name){
  */
 function onDataReceived(text) {
   var arraySTR = text.split(" ")
+ 
+
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
@@ -44,10 +46,15 @@ function onDataReceived(text) {
   else if (text === 'help\n'){
     help();
   }
+  else if (text === 'list\n'){
+    list(listArry);
+  }
   else{
     unknownCommand(text);
   }
 }
+var listArry = ['task1','task2','task3','task4'];
+
 
 
 /**
@@ -76,6 +83,13 @@ function hello(t){
 */
 function help(){
   console.log('help..\nyou can change your name\nalso you can type hello!\nin order to hello you can type any text you want start with "hello"\nalso you can exit or quit from application\nunknown command if all other command failed \nfor more information call 0011')
+}
+//console.log(list)
+function list(basharArray){
+  for(var i =0; i<basharArray.length; i++){
+  console.log('"'+[i+1]+'"' +" "+ basharArray[i])
+  }
+ 
 }
 
 
