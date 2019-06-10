@@ -52,6 +52,15 @@ function onDataReceived(text) {
   else if (ararArra[0] === 'add' ||text === 'add\n'){
     add(ararArra,listArry);
   }
+  else if (text === 'remove\n'){
+    remove();
+  }
+  else if(text === 'remove 1\n'){
+    removeFirst();
+  }
+  else if (text === 'remove 2\n'){
+    removeSecond();
+  }
   else{
     unknownCommand(text);
   }
@@ -103,6 +112,17 @@ function add(hadiraArray,listArry){
   
   console.log("error")
   }
+}
+function remove(){
+  
+    listArry.pop();
+  
+}
+function removeFirst(){
+  listArry.shift();
+}
+function removeSecond (){
+  listArry.splice(1,1);
 }
 
 
