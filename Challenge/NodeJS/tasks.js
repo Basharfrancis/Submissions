@@ -34,8 +34,8 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  var arraySTR = text.split(" ")
- 
+  var arraySTR = text.trim('').split(" ")
+  var ararArra = text.trim('').split(" ")
 
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
@@ -48,6 +48,9 @@ function onDataReceived(text) {
   }
   else if (text === 'list\n'){
     list(listArry);
+  }
+  else if (ararArra[0] === 'add' ||text === 'add\n'){
+    add(ararArra,listArry);
   }
   else{
     unknownCommand(text);
@@ -75,7 +78,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(t){
-  console.log(t.join(" ").replace("\n","!"))
+  console.log(t.join("!"))
 
 }
 /** type help if you want to know all possible commands in this application
@@ -87,9 +90,19 @@ function help(){
 //console.log(list)
 function list(basharArray){
   for(var i =0; i<basharArray.length; i++){
-  console.log([i+1] +" "+ basharArray[i])
+  console.log([i+1] +")"+ basharArray[i])
   }
  
+}
+function add(hadiraArray,listArry){
+  if(hadiraArray[1]){
+    hadiraArray.shift()
+    listArry.push(hadiraArray.join(" "))
+  }
+  else{
+  
+  console.log("error")
+  }
 }
 
 
