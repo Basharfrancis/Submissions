@@ -62,6 +62,9 @@ function onDataReceived(text) {
   // else if (text === 'remove 2\n'){
   //   removeSecond();
   // }
+  else if(arraySTR[0] === 'edit' || text === 'edit\n'){
+    edit(arraySTR,text);
+  }
   else{
     unknownCommand(text);
   }
@@ -133,6 +136,28 @@ function remove(grrfc,text){
 // function removeSecond (){
 //   listArry.splice(1,1);
 // }
+function edit(arraySTR,text){
+
+  console.log(arraySTR, text)
+  if(text === 'edit\n'){
+    console.log('error')
+  }
+  else if(arraySTR.join(" ")){
+    arraySTR.shift()
+
+    listArry.splice(listArry.length-1,1,"new text")
+  }
+  else if(arraySTR.join(" ")){
+
+    listArry.splice(arraySTR[1]-1,1,"new text")
+  }
+  
+  // else if([...arraySTR] === 'edit 1 new text'){
+  //   listArry.splice(0,1,"new text");
+  // }
+
+
+}
 
 
 /**
