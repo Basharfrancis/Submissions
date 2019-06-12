@@ -7,6 +7,13 @@ const movies = [
      { title: 'Brazil', year: 1985, rating: 8 },
      { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
 ]
+// const sortable= []
+// for(let year in movies){
+//     sortable.push([year,movies[year]])
+// }
+// sortable.sort((a,b) =>{
+//     a.year-b.year
+// })
 app.get('/', (req,res) => {
 res.send('ok');
 });
@@ -37,9 +44,32 @@ app.get('/search',(req,res)=>{
 app.get('/movies/creat', (req,res)=>{
 
 })
-app.get('/movies/read', (req,res)=>{
-res.send({status:200, data:movies })
+app.get('/movies/read/by-date', (req,res)=>{
+    
+res.send({status:200, data:
+    movies.sort(function(a,b) {
+        return a.year - b.year;
 })
+})
+})
+app.get('/movies/read/by-rating',(req,res)=>{
+    res.send({status:200, data:
+        movies.sort(function(a,b) {
+            return b.rating - a.rating;
+    })
+    })
+})
+app.get('/movies/read/by-title',(req,res)=>{
+    res.send({status:200, data:
+        movies.sort(function(a,b) {
+            var x = a.title.toLowerCase();
+            var y = b.title.toLowerCase();
+            return x < y ? -1 : x > y ? 1 : 0;
+        
+    })
+})
+})
+
 app.get('/movies/update',(req,res)=>{
 
 })
