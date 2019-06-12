@@ -43,6 +43,7 @@ app.get('/search',(req,res)=>{
 })
 app.get('/movies/creat', (req,res)=>{
     if(req.query.rating === ""){req.query.rating = 4}
+    
     if(req.query.title !==undefined && parseInt(req.query.year) !== undefined && parseInt(req.query.rating)!==undefined){
 
          movies.push({title:req.query.title,year:parseInt(req.query.year),rating:parseInt(req.query.rating)})
@@ -53,6 +54,9 @@ app.get('/movies/creat', (req,res)=>{
         res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
     }
 
+})
+app.get('/movies/read', (req,res)=>{
+    res.send({status:200, data:movies})
 })
 app.get('/movies/read/by-date', (req,res)=>{
     
@@ -91,8 +95,16 @@ app.get('/movies/read/id/:id?',(req,res)=>{
 app.get('/movies/update',(req,res)=>{
 
 })
-app.get('movies/delete',(req,res)=>{
+app.get('/movies/delete/:id',(req,res)=>{
 
+if(req.params.id >=0 && req.params.id < movies.length){
+    movies.splice(req.params.id,1)
+
+        res.send({status:200, data: movies})
+    }
+    else{
+       res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+    }
 })
 
 const PORT = 3000;
