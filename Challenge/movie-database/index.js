@@ -45,7 +45,7 @@ app.get('/movies/creat', (req,res)=>{
     if(req.query.rating === ""){req.query.rating = 4}
     
     
-    if(req.query.title !=="" && !isNaN(req.query.year) && req.query.year.length === 4 ){
+    if(isNaN(req.query.title) && req.query.title  !=="" && !isNaN(req.query.year) && req.query.year.length === 4 ){
 
          movies.push({title:req.query.title,year:parseInt(req.query.year),rating:parseInt(req.query.rating)})
          res.send({status : 200,data :movies})
