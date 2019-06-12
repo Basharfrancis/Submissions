@@ -42,6 +42,16 @@ app.get('/search',(req,res)=>{
    
 })
 app.get('/movies/creat', (req,res)=>{
+    if(req.query.rating === ""){req.query.rating = 4}
+    if(req.query.title !==undefined && parseInt(req.query.year) !== undefined && parseInt(req.query.rating)!==undefined){
+
+         movies.push({title:req.query.title,year:parseInt(req.query.year),rating:parseInt(req.query.rating)})
+         res.send({status : 200,data :movies})
+
+    }
+    else{
+        res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+    }
 
 })
 app.get('/movies/read/by-date', (req,res)=>{
