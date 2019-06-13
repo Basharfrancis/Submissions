@@ -131,17 +131,28 @@ else if(req.query.year !== movies[req.params.id].year){
      res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
  }
 })
+// app.delete('/movies/delete/:id',(req,res)=>{
+
+// if(req.params.id >=0 && req.params.id < movies.length){
+//     movies.splice(req.params.id,1)
+
+//         res.send({status:200, data: movies})
+//     }
+//     else{
+//        res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+//     }
+// })
 app.delete('/movies/delete/:id',(req,res)=>{
 
-if(req.params.id >=0 && req.params.id < movies.length){
-    movies.splice(req.params.id,1)
-
-        res.send({status:200, data: movies})
-    }
-    else{
-       res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
-    }
-})
+    if(req.params.id >=0 && req.params.id < movies.length){
+        movies.splice(req.params.id,1)
+    
+            res.send({status:200, data: movies})
+        }
+        else{
+           res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+        }
+    })
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
