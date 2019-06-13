@@ -1,6 +1,25 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express() ;
+const PORT = 3000;
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+const url = `mongodb+srv:bashar://giga.giga123d@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority`
+
+mongoose.Promise = global.Promise;
+mongoose.connect(url);
+app.set('view engine' , 'ejs')
+//MONGOLAB_URI ='mongodb+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority';
+heroku :set
+//MONGOLAB_URI='mongodb+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority';
+const moviesSchema = new mongoose.Schema({
+    title: String,
+    year: Number,
+    rating: Number
+    });
+const movies = mongoose.model('movies', moviesSchema);
 const movies = [
     { title: 'Jaws', year: 1975, rating: 8 },
      { title: 'Avatar', year: 2009, rating: 7.8 },
@@ -14,6 +33,7 @@ const movies = [
 // sortable.sort((a,b) =>{
 //     a.year-b.year
 // })
+
 app.get('/', (req,res) => {
 res.send('ok');
 });
@@ -41,7 +61,7 @@ app.get('/search',(req,res)=>{
     }
    
 })
-app.get('/movies/creat', (req,res)=>{
+app.post('/movies/creat', (req,res)=>{
     if(req.query.rating === ""){req.query.rating = 4}
     
     
@@ -93,10 +113,25 @@ app.get('/movies/read/id/:id?',(req,res)=>{
     }
 })
 
-app.get('/movies/update',(req,res)=>{
+app.put('/movies/update/:id',(req,res)=>{
+if(req.params.id >=0 && req.params.id< movies.length){
+    if(req.query.title!== movies[req.params.id].title){
+    movies[req.params.id ].title=req.query.title}
+    else if(req.query.rating !== movies[req.params.id].rating){
+     movies[req.params.id].rating = parseInt(req.query.rating);
+}
+else if(req.query.year !== movies[req.params.id].year){
+     movies[req.params.id].year = parseInt(req.query.year);
 
+}
+   
+ res.send({status:200, data : movies})
+}
+ else{
+     res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+ }
 })
-app.get('/movies/delete/:id',(req,res)=>{
+app.delete('/movies/delete/:id',(req,res)=>{
 
 if(req.params.id >=0 && req.params.id < movies.length){
     movies.splice(req.params.id,1)
@@ -108,7 +143,6 @@ if(req.params.id >=0 && req.params.id < movies.length){
     }
 })
 
-const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
 })
