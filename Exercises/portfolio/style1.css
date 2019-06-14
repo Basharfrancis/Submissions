@@ -46,3 +46,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.MainInfo{
+	list-style-type: circle;
+	color: slateblue;
+}
