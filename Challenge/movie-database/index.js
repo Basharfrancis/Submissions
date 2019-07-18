@@ -6,21 +6,21 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const url = `mongodb+srv:bashar://giga.giga123d@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority`
+const url = 'mongodb+srv://bashar:giga.giga@cluster0-xunb1.mongodb.net/test?retryWrites=true&w=majority'
 
 mongoose.Promise = global.Promise;
 mongoose.connect(url);
-app.set('view engine' , 'ejs')
+
 //MONGOLAB_URI ='mongodb+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority';
-heroku :set
+
 //MONGOLAB_URI='mongodb+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority+srv://bashar:<password>@cluster0-63y2h.mongodb.net/test?retryWrites=true&w=majority';
 const moviesSchema = new mongoose.Schema({
     title: String,
     year: Number,
     rating: Number
     });
-const movies = mongoose.model('movies', moviesSchema);
-const movies = [
+const movies = mongoose.model('bashar', moviesSchema);
+const mov = [
     { title: 'Jaws', year: 1975, rating: 8 },
      { title: 'Avatar', year: 2009, rating: 7.8 },
      { title: 'Brazil', year: 1985, rating: 8 },
@@ -62,22 +62,33 @@ app.get('/search',(req,res)=>{
    
 })
 app.post('/movies/creat', (req,res)=>{
-    if(req.query.rating === ""){req.query.rating = 4}
-    
+    if(req.query.rating === ""){
+        req.query.rating = 4;
+    }
     
     if(isNaN(req.query.title) && req.query.title  !=="" && !isNaN(req.query.year) && req.query.year.length === 4 ){
+        const myData = new movies(req.body);
+    myData.save().then((item)=>{res.send({status : 200,data :item})})
 
-         movies.push({title:req.query.title,year:parseInt(req.query.year),rating:parseInt(req.query.rating)})
-         res.send({status : 200,data :movies})
-    }
+         //movies.push({title:req.query.title,year:parseInt(req.query.year),rating:parseInt(req.query.rating)})
+         
     
-    else{
-        res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
-    }
+    
+    .catch((err)=>{
+        console.log(err)
+        res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})})
+    
 
-})
+}})
 app.get('/movies/read', (req,res)=>{
-    res.send({status:200, data:movies})
+    const user = movies
+    user.find({}).then((item)=>{
+        res.send({status:200, data:item})
+
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 })
 app.get('/movies/read/by-date', (req,res)=>{
     
